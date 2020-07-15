@@ -1,0 +1,20 @@
+<h1 class="display-4 animated fadeIn animated">Cities </h1>
+<hr>
+<table class="table bg-white">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th i18n scope="col">Name</th>
+            <th i18n scope="col">Alert </th>
+            <th i18n scope="col">Warning </th>
+            <th i18n scope="col">Normal </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cities">
+            <th scope="row">{{city.Name}}</th>
+            <th scope="row">{{city.AlertDevicesCount}}</th>
+            <th scope="row">{{city.WarningDevicesCount}}</th>
+            <th scope="row">{{city.NormalDevicesCount}}</th>
+        </tr>
+    </tbody>
+</table>

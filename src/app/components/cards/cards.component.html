@@ -1,0 +1,75 @@
+<h1 class="display-4 animated fadeIn animated">Resumen</h1>
+<hr>
+<div class="container card">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-green rounded-bottom rounded-top">
+                <div class="inner">
+                    <h3> Normal </h3>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-pagelines" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-orange rounded-bottom rounded-top">
+                <div class="inner">
+                    <h3> Warning </h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-smog" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card-box bg-red rounded-bottom rounded-top">
+                <div class="inner">
+                    <h3> Alert </h3>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container card-group mt-3 ">
+    <div *ngFor="let device of devicesInfo">
+        <div [ngSwitch]='device.AirQuality'>
+            <div *ngSwitchCase='0' class=" card mt-3 border-success solid mb-3 mr-2" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="text-center text-muted">{{device.LastActivity}}</p>
+                    <h6 class="m-b-1 ">{{device.Id}}
+                        <h6 class="float-right mr-4">{{device.Temperature}}&deg;C</h6>
+                        <p class="text-left mt-2 "><span>{{device.Name}}</span><i class="float-right fas fa-cloud-sun mr-4 h6"></i>
+                            <p class="text-left mt-2 mb-0"><span>{{device.CityId[0].Name}}</span></p>
+                    </h6>
+                </div>
+            </div>
+            <div *ngSwitchCase='1' class="card border-warning mt-3 mb-3 mr-2" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="text-center text-muted ">{{device.LastActivity | date:'short'}}</p>
+                    <h6 class="m-b-1 ">{{device.Id}}
+                        <h6 class="float-right mr-4 ">{{device.Temperature}}°C</h6>
+                        <p class="text-left mt-2 "><span>{{device.Name}}</span><i class="float-right fas fa-cloud-sun mr-4 "></i>
+                            <p class="text-left mt-2 "><span>{{device.CityId[0].Name}}</span></p>
+                    </h6>
+                </div>
+            </div>
+            <div *ngSwitchCase='2' class="card border-danger mt-3 mb-3" style="width: 18rem;">
+                <div class="card-body ">
+                    <p class="text-center text-muted ">{{device.LastActivity | date:'short'}}</p>
+                    <h6 class="m-b-1 ">{{device.Id}}
+                        <h6 class="float-right mr-4 ">{{device.Temperature}}°C</h6>
+                        <p class="text-left mt-2 "><span>{{device.Name}}</span><i class="float-right fas fa-cloud-sun mr-4 h6 "></i>
+                            <p class="text-left mt-2 "><span>{{device.CityId[0].Name}}</span></p>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
