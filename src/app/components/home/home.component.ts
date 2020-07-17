@@ -14,7 +14,6 @@ export class HomeComponent {
     this.http.get('https://patatas-air.s3.amazonaws.com/cities')
         .subscribe( (data: any) => {
           this.cities = data;
-          console.log(this.cities);
         });
 
   }
